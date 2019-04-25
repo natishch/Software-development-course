@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
 </head>
 <style>
     #container {
@@ -30,10 +29,10 @@
         transform: rotate(90deg)
     }
     #container.rotate180 #pacMan {
-        transform: rotate(180deg)
+        transform: rotateY(180deg)
     }
     #container.rotate270 #pacMan {
-        transform: rotate(270deg)
+        transform:  rotate(270deg);
     }
 </style>
 <body>
@@ -59,10 +58,8 @@
                 pacMan.style.left = pacLeft + 'px';
             }
             if (e.keyCode == 38) {
-
                 container.className = "reset";
                 container.className = "rotate270";
-
                 pacUP -= stepsize;
                 if (pacUP < 0) {
                     pacUP += stepsize;
@@ -71,7 +68,6 @@
             }
             if (e.keyCode == 39) {
                 container.className = "reset";
-
                 pacLeft += stepsize;
                 if (pacLeft > (800 - 35)) {
                     pacLeft -= stepsize;
