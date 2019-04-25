@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #container {
+        height: 600px;
+        width: 800px;
+        outline: 5px solid red;
+        background: black;
+        position: relative;
+    }
+
+    #pacMan {
+        position: absolute;
+        content: url(http://www.pngall.com/wp-content/uploads/2/Pacman-PNG-Free-Download-180x180.png);
+        height: 35px;
+        width: 35px;
+        left: 0;
+        top: 0;
+    }
+</style>
+<body>
+    <div id="container">
+        <div id="pacMan"></div>
+    </div>
+
+    <script>
+        var pacman = document.getElementById('pacMan');
+        var container = document.getElementById('container');
+        var pacLeft = 0;
+        var pacUP = 0;
+        var stepsize =8;
+        function move(e) {
+            if (e.keyCode == 37) {
+                pacLeft -= stepsize;
+                if (pacLeft < 0) {
+                    pacLeft += stepsize;
+                }
+                pacMan.style.left = pacLeft + 'px';
+            }
+            if (e.keyCode == 38) {
+                pacUP -= stepsize;
+                if (pacUP < 0) {
+                    pacUP += stepsize;
+                }
+                pacMan.style.top = pacUP + 'px';
+            }
+            if (e.keyCode == 39) {
+                pacLeft += stepsize;
+                if (pacLeft > (800-35)) {
+                    pacLeft -= stepsize;
+                }
+                pacMan.style.left = pacLeft + 'px';
+            }
+            if (e.keyCode == 40) {
+                pacUP += stepsize;
+                if (pacUP > (600-35)) {
+                    pacUP -= stepsize;
+                }
+                pacMan.style.top = pacUP + 'px';
+            }
+        }
+        document.onkeydown = move;
+    </script>
+</body>
+
+</html>
