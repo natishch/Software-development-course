@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>GamePlay</title>
 </head>
 <style>
     #container {
@@ -22,19 +22,24 @@
         left: 0;
         top: 0;
     }
+
     #container.reset #pacMan {
         counter-reset: all;
     }
+
     #container.rotate90 #pacMan {
         transform: rotate(90deg)
     }
+
     #container.rotate180 #pacMan {
         transform: rotateY(180deg)
     }
+
     #container.rotate270 #pacMan {
-        transform:  rotate(270deg);
+        transform: rotate(270deg);
     }
 </style>
+
 <body>
     <center>
         <div id="container">
@@ -49,7 +54,6 @@
         var stepsize = 8;
         function move(e) {
             if (e.keyCode == 37) {
-                container.className = "reset";
                 container.className = "rotate180";
                 pacLeft -= stepsize;
                 if (pacLeft < 0) {
@@ -58,7 +62,6 @@
                 pacMan.style.left = pacLeft + 'px';
             }
             if (e.keyCode == 38) {
-                container.className = "reset";
                 container.className = "rotate270";
                 pacUP -= stepsize;
                 if (pacUP < 0) {
@@ -75,9 +78,7 @@
                 pacMan.style.left = pacLeft + 'px';
             }
             if (e.keyCode == 40) {
-                container.className = "reset";
                 container.className = "rotate90";
-
                 pacUP += stepsize;
                 if (pacUP > (600 - 35)) {
                     pacUP -= stepsize;
